@@ -1,1 +1,1 @@
-# pixi-hello-c
+# hello-pkg
