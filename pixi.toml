@@ -1,5 +1,5 @@
 [workspace]
-name = "hello-pkg"
+name = "hello_pkg"
 channels = ["conda-forge"]
 platforms = ["win-64", "linux-64", "osx-arm64", "osx-64"]
 
@@ -13,7 +13,7 @@ packaging = ">=26.0,<27"
 [tasks]
 install-dev = { cmd = "pip install -e . --break-system-packages", depends-on = ["build"] }
 hello-c = { cmd = "./src/hello", depends-on = ["build"] }
-hello-py = { cmd = "python hello-pkg/hello.py", depends-on = ["build"] }
+hello-py = { cmd = "python hello_pkg/hello.py", depends-on = ["build"] }
 
 # Manual build/clean tasks
 build = { cmd = "make -C src" }

@@ -1,4 +1,4 @@
-# hello-pkg
+# hello_pkg
 This is a simple example to show how to setup Pixi to create a package that executes an OpenMDAO component that depends on external C code. The C code is built upon first execution using the Makefile in the `src` folder.
 
 
