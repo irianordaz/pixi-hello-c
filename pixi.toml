@@ -1,0 +1,25 @@
+[workspace]
+name = "pixi-hello-c"
+channels = ["conda-forge"]
+platforms = ["win-64", "linux-64", "osx-arm64", "osx-64"]
+
+[dependencies]
+make = "*"
+gcc = "*"
+python = ">=3.14.3,<3.15"
+numpy = ">=2.4.2,<3"
+packaging = ">=26.0,<27"
+
+[tasks]
+# This runs automatically after 'pixi install' or any environment change
+# postinstall = { cmd = "make" }
+postinstall = { cmd = "make -C src" }
+install-dev = { cmd = "pip install -e . --break-system-packages", depends-on = ["postinstall"] }
+
+# run-hello = { cmd = "./hello", depends-on = ["postinstall"] }
+hello-c = { cmd = "./src/hello", depends-on = ["postinstall"] }
+hello-py = { cmd = "python hellopkg/hello.py", depends-on = ["postinstall"] }
+
+# Manual build/clean tasks
+clean = { cmd = "make -C src clean && openmdao clean -f" }
+
